@@ -162,9 +162,9 @@
 
 
                 function displayGameOver(rs, cn){
-                    var highscoreString = "<CENTER><h2 class='demo rainbow'>NEW HIGH SCORE!</H2></CENTER>";
+                    var highscoreString = "";
                     if(updateHighScore() == 1){
-                        highscoreString = "<";
+                        highscoreString = "<CENTER><h2 class='demo rainbow'>NEW HIGH SCORE!</H2></CENTER>";
                     }
                     document.getElementById("game").innerHTML = highscoreString + "<br><h1>GAME OVER!<h1><h6>score : " + cn + "<BR>average reaction speed : " + rs + "s"
                          + '<button type="button" class="bigButton2" onclick="startplay()" ><h1>Click to play again!</h1></button></h6>';
