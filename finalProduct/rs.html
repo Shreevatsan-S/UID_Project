@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="common-prop.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Silkscreen">
+        <title>
+            Reaction speed game       </title>
+        <STYLE>
+            
+            .display_score{
+                padding-left:20%;
+                text-align:left;
+                font-family: 'Silkscreen';
+                color:white;
+            }
+            .display_high_score{
+                padding-right:10%;
+                text-align:right;
+                color:white;
+            }
+            .reactionSpeed_game{
+                border: 0;
+                font-family: 'Silkscreen';
+                opacity:95%;
+                
+                height: 100%;
+                width: 90%;
+                margin-left:5%;
+            }
+            .b1{
+                font-family: 'Silkscreen';
+                height: 20%;
+                width: 40%;
+            }
+            .circle{
+                height:100px;
+                width: 100px;
+                border-radius: 200px;
+                font-family: 'Silkscreen';
+            }
+            .game{
+                background-color: white;
+                height : 700px;
+                width: 100%;
+                
+            }
+            h1{
+                text-align: center;
+                font-size: 40px;
+            }
+            h6{
+                text-align: center;
+                font-size: 40px;
+                padding-top:100px;
+            }
+
+
+        </STYLE>
+    </head>
+    <body>
+        <h1 style="color:white;">RMSS GAMES</h1><br>
+        <table style="width:100%;" >
+            <tr>
+                <td>
+
+                    <div class="display_score">SCORE<br><p id="dispScore">0</p></div>
+
+                </td>
+                <td>
+                    <div class="display_high_score" id="disphs">HIGH SCORE<br><p id="dispHighScore">0</p></div>
+                </td>
+            </tr>
+        </table>    
+
+
+
+        <div class="reactionSpeed_game">
+            <h1 style="font-weight : 700; font-size: 50px; color:rgb(255, 4, 4);" align="center">Reaction Speed Game</h1>
+            <br><p id="timeStats" style="color:white; height: 20px; font-size: 20px;"><br>
+            </p>
+            <div id="game" class="game" style="color:black;">
+                <center><button type="button" style="margin-top:15%" class="bigButton2" onclick="startplay()" ><h1>Click to start playing!</h1></button>
+                </center>
+            </div>
+
+        </div>
+
+
+
+
+        
+        <div style="padding:100px; width:100px">
+            <button onclick="alert(howToPlay())" class="bigButton">
+                <h2>How to play</h2>
+            </button><br><br>
+            <align = "left">
+                <a href="index.html">
+                    <button type="button" class = "bigButton">
+                        <h2>HOME</h2>
+                    </button>
+                    </a>
+                </align>
+        
+        </div>
+
+
+
+            <script>
+                function howToPlay()
+                {
+                    playInstructions = "click the circles as fast as you can!\nYou can see the amount of time you took to click the circle as reaction speed at the end of each play";
+                    return playInstructions;
+                }
+            </script>
+            <script>
+                var MAXTIME = 30;
+                var circleNumber;
+                var highscore = 0;
+                
+                function startplay(){
+                    circleNumber = 0;
+                    time = 0;
+                    dispTimeLeft();
+                    genButton();
+                }
+                function genButton(){
+                    circleNumber += 1;
+                    let x = Math.random()*94;
+                    let y = Math.random()*27;
+                    document.getElementById("game").innerHTML = "<button type='button' class='circle' style='margin-top:" + y+ "%; margin-left: " + x + "% ' onclick='genButton()'>" + circleNumber + "</button>";
+                    
+                    updateScore();
+                }
+                var time = 0;
+                function incTime(){
+                    time += 1;
+                }
+                function endGame(){
+                    circleNumber -= 1;
+                    var reactionSpeed = time/circleNumber;
+                    reactionSpeed = reactionSpeed.toFixed(2);
+                    document.getElementById("timeStats").innerHTML = "";
+                    displayGameOver(reactionSpeed, circleNumber);
+                    clearTimeout(Tout1);
+                
+                }
+                function dispTimeLeft(){
+                    incTime();
+                    document.getElementById("timeStats").innerHTML = time + " seconds elapsed";
+                    if(time >= MAXTIME){
+                        endGame();
+                        clearTimeout(Tout1);
+                    }
+                    var Tout1 = setTimeout(dispTimeLeft,1000);
+                }
+
+                function updateScore(){
+                    document.getElementById("dispScore").innerHTML = circleNumber - 1;
+                }
+
+
+                function updateHighScore(){
+                    let returnVal = 0;
+                    if(circleNumber > highscore){
+                        highscore = circleNumber;
+                        returnVal = 1;
+                    }
+                    document.getElementById("dispHighScore").innerHTML = highscore;
+                    return returnVal;
+                }
+
+
+                function displayGameOver(rs, cn){
+                    var highscoreString = "";
+                    if(updateHighScore() == 1){
+                        highscoreString = "<CENTER><h2 class='demo rainbow'>NEW HIGH SCORE!</H2></CENTER>";
+                    }
+                    document.getElementById("game").innerHTML = highscoreString + "<br><h1>GAME OVER!<h1><h6>score : " + cn + "<BR>average reaction speed : " + rs + "s"
+                         + '<button type="button" class="bigButton2" onclick="startplay()" ><h1>Click to play again!</h1></button></h6>';
+                }
+
+
+            </script>
+    </body>
+</html>
