@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Minesweeper</title>
+        <link rel="stylesheet" href="mine.css"></link>
+        <script src="mine.js" charset="utf-8"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Silkscreen">
+        <link rel="stylesheet" href="common-prop.css">
+       
+    </head>
+    <body>
+        <center>
+        <h1 style="color:white">RMSS GAMES</h1><br>
+        <table style="width:100%;" >
+            <tr>
+                <td>
+
+                    <div class="display_score">SCORE<br><p id="dispScore">0</p></div>
+
+                </td>
+                <td>
+                    <div class="display_high_score" id="disphs">HIGH SCORE<br><p id="dispHighScore">0</p></div>
+                </td>
+            </tr>
+        </table>
+    </center>    
+
+
+<center>
+        <div class="container">
+            <div class="grid"></div>
+            <div style="color:white">Flags left: <span id='flags-left'></span></div>
+            <div id="result"></div>
+          </div>
+        </center>
+
+
+
+
+        
+        <div style="padding:100px; width:100px">
+            <button onclick="alert(howToPlay())" class="bigButton">
+                <h2>How to play</h2>
+            </button><br><br>
+            <align = "left">
+                <a href="index.html">
+                    <button type="button" class = "bigButton">
+                        <h2>HOME</h2>
+                    </button>
+                    </a>
+                </align>
+        
+        </div>
+        <script>
+            function howToPlay()
+            {
+                playInstructions = "don't click the bombs!\n avoid clicking the bombs by watching the number displayed on the squares\n the number on the square denotes the number of bombs in 8-square radius of the square";
+                return playInstructions;
+            }
+        </script>
+    </body>
+</html>

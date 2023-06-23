@@ -1,0 +1,107 @@
+
+
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #042baa;
+    color: white;
+    
+  }
+  
+  .bar-chart{
+    border: 1px solid black;
+    width:500px;
+  }
+  
+  img.img1 {
+    margin-top: 30px;
+    border-radius: 50%;
+    height : 200px;
+    width:200px;
+  }
+  .contactDetails{
+    background-color: #333;
+    margin:0px;
+  }
+  a.contactDetails{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:white;
+    text-decoration: none;
+    padding-right: 10px;
+  }
+  .bod{
+    background-image: url("https://i.pinimg.com/originals/46/ac/9e/46ac9e282d3c303934a72d941845785b.gif");
+    background-size: cover;
+    background-color: #333;
+  }
+  i {
+    padding: 10px;
+  }
+  .InsideDetails{
+    margin-top:40px;
+    margin-right: 100px;
+    margin-left:100px;
+    margin-bottom: 40px;;
+    padding:50px;
+    border-radius: 20px;
+    background-color: white;
+    color: blue;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    min-height:300px;
+    opacity: 80%;
+  }
+  
+  h1{
+    text-decoration: none;
+    font-weight: lighter;
+    color:black;
+    font-size: 40px;
+  }
+  h2{
+    text-decoration: underline;
+    font-weight: 700;
+    color: rgb(81, 81, 81);
+  }
+  
+  h3{
+    font-family:Arial, Helvetica, sans-serif;
+  }
+  .insideText{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: lighter;
+    color: darkblue;
+  }
+  
+  h6{
+    font-weight: lighter;
+    font-size: medium;
+  }
+  .BasicDescription{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:30px;
+    text-decoration: none;
+    font-weight: lighter;
+  }
+  .insideText2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color:#465b9f;
+  }
