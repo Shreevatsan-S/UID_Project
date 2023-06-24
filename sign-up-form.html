@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Silkscreen">
-    <title>Document</title>
+    <title>Sign up</title>
     
     <style>
         .login-content{
@@ -23,7 +23,7 @@ html, body {
  
   font-family: Roboto, Arial, sans-serif;
   font-size: 15px;
-  background-image: url("https://i.pinimg.com/originals/bd/02/ee/bd02eed9bdbed2e552fe36208c633f0c.gif");
+  background-image: url("https://i.pinimg.com/originals/46/ac/9e/46ac9e282d3c303934a72d941845785b.gif");
                 background-size: cover;
                 background-repeat:no-repeat;
   }
@@ -34,7 +34,7 @@ html, body {
      
      
       }
-      input[type=text], input[type=email] {
+      input[type=text], input[type=email], input[type="password"] {
       width: 100%;
       padding: 16px 8px;
       margin: 8px 0;
@@ -53,7 +53,7 @@ html, body {
       button {
         border: 10px solid transparent;
         border-image: url("./border-image.png") 20/10 stretch;
-        height: 80px;
+        height: 100px;
         width: 280px;
         background: transparent;
         margin: 10px;
@@ -69,7 +69,7 @@ html, body {
       button:hover {
         border: 10px solid transparent;
         border-image: url("./border-image.png") 20/10 stretch;
-        height: 82px;
+        height: 102px;
         width: 287px;
         background: transparent;
         margin: 9px;
@@ -93,30 +93,78 @@ html, body {
     </style>
 </head>
 <body>
+  <script>  
+    function validateform(){  
+      var name = document.forms["signin"]["data[username]"].value;  
+      var password = document.forms["signin"]["data[password]"].value;  
+        
+      if (name==null || name==""){  
+        alert("Name can't be blank");  
+        return false;  
+      }else if(password.length<6){  
+        alert("Password must be at least 6 characters long.");  
+        return false;  
+      }
+        
+    }  
+    </script> 
     <center>   <h1 style="padding-top: 2rem; color: white;">SIGN UP TO SAVE SCORES</h1></center>
         <div class="login-content">  
-             <form action="/action_page.php">
+             <form action="https://sheetdb.io/api/v1/lreaj6ayl5sc9" id="sheetdb-form"  method="post" name="signin" onsubmit="return validateform()">
              <h1 ALIGN = "CENTER">SIGN UP</h1>
              <div class="icon">
                <i class="fas fa-user-circle"></i>
              </div>
              <div class="formcontainer">
              <div class="container">
-               <label for="uname"><strong>Username
-               </strong></label>
-               <input type="text" placeholder="Enter Username" name="uname" required>
+               
+              <label for="data[username]"><strong>Username</strong></label>
+
+               <input type="text" placeholder="Enter Username" name="data[username]" required>
              
-               <label for="psw"><strong style="opacity: 100%;">Email</strong></label>
-               <input type="email" placeholder="Enter Email" name="psw" required>
+               <label for="data[email]"><strong style="opacity: 100%;">Email</strong></label>
+               <input type="email" placeholder="Enter Email" name="data[email]" required>
+
+               <label for="data[password]"><strong style="opacity: 100%;">Password</strong></label>
+               <input type="password" placeholder="Enter Password" name="data[password]" required>
              </div>
              <button type="submit" class="button"><strong>SIGN UP</strong></button>
-             
              </div>
            </form> 
          </div>
+         <br>
+          <br>
+         <align = "left" style="margin: 40%; ">
+          
+          <a href="index.html">
+              <button type="button" style="color: white;">
+                  <h2>HOME</h2>
+              </button>
+              </a>
+          </align>
     </CENTER>
 
  <div style="height:300px">
 </div>
+<script>
+  var form = document.getElementById('sheetdb-form');
+  form.addEventListener("submit", e => {
+    if(validateform() != false)
+    {
+      
+      e.preventDefault();
+      fetch(form.action, {
+          method : "POST",
+          body: new FormData(document.getElementById("sheetdb-form")),
+      }).then(
+          response => response.json()
+      ).then((html) => {
+        // you can put any JS code here
+        window.location.href = 'login.html';
+    });
+  }
+  });
+</script>
+ 
 </body>
 </html>

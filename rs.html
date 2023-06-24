@@ -4,8 +4,7 @@
         <link rel="stylesheet" href="common-prop.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Silkscreen">
         <title>
-            PLAY GAME
-        </title>
+            Reaction speed game       </title>
         <STYLE>
             
             .display_score{
@@ -59,7 +58,7 @@
         </STYLE>
     </head>
     <body>
-        <h1 style="color:white">RMSS GAMES</h1><br>
+        <h1 style="color:white;">RMSS GAMES</h1><br>
         <table style="width:100%;" >
             <tr>
                 <td>
@@ -76,7 +75,7 @@
 
 
         <div class="reactionSpeed_game">
-            <h1 style="font-weight : 700; font-size: 30px; color:rgb(88, 113, 225);" align="center">Reaction Speed Game</h1>
+            <h1 style="font-weight : 700; font-size: 50px; color:rgb(255, 4, 4);" align="center">Reaction Speed Game</h1>
             <br><p id="timeStats" style="color:white; height: 20px; font-size: 20px;"><br>
             </p>
             <div id="game" class="game" style="color:black;">
@@ -90,21 +89,31 @@
 
 
         
-        <div style="padding:100px;">
+        <div style="padding:100px; width:100px">
             <button onclick="alert(howToPlay())" class="bigButton">
                 <h2>How to play</h2>
-            </button>
-            </a>
+            </button><br><br>
+            <align = "left">
+                <a href="index.html">
+                    <button type="button" class = "bigButton">
+                        <h2>HOME</h2>
+                    </button>
+                    </a>
+                </align>
+        
         </div>
+
+
+
             <script>
                 function howToPlay()
                 {
-                    playInstructions = "click the circles as fast as you can!";
+                    playInstructions = "click the circles as fast as you can!\nYou can see the amount of time you took to click the circle as reaction speed at the end of each play";
                     return playInstructions;
                 }
             </script>
             <script>
-                var MAXTIME = 2;
+                var MAXTIME = 30;
                 var circleNumber;
                 var highscore = 0;
                 

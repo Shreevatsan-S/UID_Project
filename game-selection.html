@@ -7,44 +7,64 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Silkscreen">
     </head>
     <style>
-        img{
+        .chooseGame{
             height: 300px;
             width: 400px;
             margin:20px;
         }
-        img:hover{
+        .chooseGame:hover{
             height: 310px;
             width: 410px;
-            margin:15px;
+            margin:10px;
+        }
+        a{
+            text-decoration: none;
+
+        }
+        .chooseGame{
+            border:1px white solid;
+            background-position: -40px;
+        }
+        h1{
+            color:white;
         }
     </style>
 <body>
         
 <center>
-<h1>CHOOSE YOUR GAME</h1>
+<h1 style="color:white;">CHOOSE YOUR GAME</h1>
 <table style="height:fit-content;">
     <tr>
         <td>
-            <a>
-            <img src="simon-game.png" alt="simon game">
-        </a>
+            <a href="rs.html">
+                <div class="chooseGame" style="background-image: url('rsplay.png'); background-size: cover;">
+                </div>
+                </a>
+                <center><h1>Reaction Speed game</h1></center>
         </td>
         <td>
-            <a href="rs.html">
-            <img src="Reaction-speed.png" alt="Reaction speed game">
+            <a href="simon.html">
+            <div class="chooseGame" style="background-image: url('simon_play.png'); background-size: cover;">
+                
+            </div>
             </a>
+            <center><h1>simon game</h1></center>
         </td>
     </tr>
     <tr>
         <td>
-            <a>
-            <img src="Minesweeper.png" alt="Minesweeper">
-        </a>
+            <a href="mine.html">
+                <div class="chooseGame" style="background-image: url('Minesweeper_play.png'); background-size: cover;">
+                </div>
+                </a>
+                <center><h1>Minesweeper</h1></center>
         </td>
         <td>
-            <a>
-            <img src="snake game.png" alt="snake game">
-        </a>
+            <a href="SnakeGame.html">
+                <div class="chooseGame" style="background-image: url('snake.png'); background-size: cover;">
+                </div>
+                </a>
+                <center><h1>Snake game</h1></center>
         </td>
     </tr>
 </table><a href="index.html">
