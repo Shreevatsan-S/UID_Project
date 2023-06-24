@@ -112,27 +112,6 @@ html, body {
            </form> 
          </div>
         </p>
-        
-        <script>
-          var name = document.form["form1"]["data[username]"].value
-          var password = document.form["form1"]["data[password]"].value
-          var form = document.getElementById('sheetdb-form');
-          form.addEventListener("submit", e => {
-            e.preventDefault();
-            fetch(form.action, {
-                method : "GET",
-            }).then(
-                response => process(response.json())
-            ).then((html) => {
-            });
-          });
-          function process(str)
-          {
-            k1 = str.indexof(name)
-            k2 = str.indexof(password)
-            console.log(k1,k2)
-          }
-        </script>
     </CENTER>
 </body>
 </html>
