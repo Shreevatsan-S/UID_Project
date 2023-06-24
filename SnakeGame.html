@@ -2,6 +2,7 @@
 <html>
   <head>
     <link href='https://fonts.googleapis.com/css?family=Silkscreen' rel='stylesheet'>
+    <link rel = "stylesheet" href="common-prop.css">
     <title>Snake Game</title>
 
     <style>
@@ -12,9 +13,9 @@
       }
 
       body {
-        font-family: 'Silkscreen';font-size: 22px;
-        background: black;
-        display: flex;
+        font-family: 'Silkscreen';font-size: 22px;/*
+        background: black;*/
+
         align-items: center;
         justify-content: center;
       }
@@ -22,6 +23,8 @@
       canvas {
         border: 1px solid white;
         background-color: rgb(243, 245, 138);
+        width:28%;
+        margin:100px;
       }
 
       #p1 {
@@ -39,14 +42,14 @@
       }
 
       #score {
-        color: yellow;
+        color: rgb(30, 0, 255);
         position: absolute;
         left: 195px;
         top: 10px;
       }
 
       #high {
-        color: yellow;
+        color: rgb(0, 60, 255);
         position: absolute;
         left: 250px;
         top: 30px;
@@ -65,18 +68,33 @@
     <p id="p2">HIGHSCORE:</p>
     <p id="score"></p>
     <p id="high"></p>
-    <p id="end_msg"></p>
+    <p id="end_msg"></p><center>
     <canvas width="400" height="400" id="game"></canvas>
+  </center>
+  <center>
+    <button onclick="alert(howToPlay())" class="bigButton">
+                <h2>How to play</h2>
+            </button>
+                <a href="index.html">
+                    <button type="button" class = "bigButton">
+                        <h2>HOME</h2>
+                    </button>
+                    </a>
+                </align>
+              </center>
+              <script>
+                function howToPlay()
+                {
+                    playInstructions = "use the arrow keys '←', '→', '↑', '↓' to move the snake in the required direction";
+                    return playInstructions;
+                }
+            </script>
     <script>
       var canvas = document.getElementById('game');
       var context = canvas.getContext('2d');
       var grid = 16;
       var count = 0;
       var score = 0;
-      var max = 0;
-      if (localStorage.score) {
-        document.getElementById('score').innerHTML = localStorage.score;
-      }
       var max = 0;
       var snake = {
         x: 160,

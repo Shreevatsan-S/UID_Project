@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Simon Game</title>
+  <link rel="stylesheet" href="style.css"></link>
+  <script src="app.js" charset="utf-8"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+  <style>
+    .bigButton{
+      height:100px;
+      width:200px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="grid"></div>
+    <div>Flags left: <span id='flags-left'></span></div>
+    <div id="result"></div>
+  </div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Simon</title>
+  <link rel="stylesheet" href="simon.css">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+</head>
+
+<body>
+  <h1 id="level-title">Press A Key to Start</h1>
+  <div class="container">
+    <div lass="row">
+
+      <div type="button" id="green" class="btn green">
+
+      </div>
+
+      <div type="button" id="red" class="btn red">
+
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div type="button" id="yellow" class="btn yellow">
+
+      </div>
+      <div type="button" id="blue" class="btn blue">
+
+      </div>
+
+    </div>
+
+  </div>
+  <div style="padding:100px; width:100px">
+    <button onclick="alert(howToPlay())" class="bigButton">
+        <h2>How To Play</h2>
+    </button><br><br>
+    <align = "left">
+        <a href="index.html">
+            <button type="button" class = "bigButton">
+                <h2>Home</h2>
+            </button>
+            </a>
+        </align>
+
+</div>
+
+
+
+    <script>
+        function howToPlay()
+        {
+            playInstructions = "Click the buttons in the correct sequence!";
+            return playInstructions;
+        }
+    </script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="simon.js"></script>
+</body>
+
+</html>
