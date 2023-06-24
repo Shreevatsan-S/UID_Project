@@ -94,21 +94,19 @@ html, body {
 </head>
 <body>
   <script>  
-    function validateform(){  
+    function validateform()
+    {  
       var name = document.forms["signin"]["data[username]"].value;  
       var password = document.forms["signin"]["data[password]"].value;  
-        
-      if (name==null || name==""){  
-        alert("Name can't be blank");  
-        return false;  
-      }else if(password.length<6){  
-        alert("Password must be at least 6 characters long.");  
-        return false;  
-      }
-        
+      var validation = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
+        if(!validation.test(password))
+        {
+            alert("Password should contain atleast one number and one alphanumeric character.");
+            return false;
     }  
+    }
     </script> 
-    <center>   <h1 style="padding-top: 2rem; color: white;">SIGN UP TO SAVE SCORES</h1></center>
+    <center> <h1 style="padding-top: 2rem; color: white;">SIGN UP TO SAVE SCORES</h1></center>
         <div class="login-content">  
              <form action="https://sheetdb.io/api/v1/lreaj6ayl5sc9" id="sheetdb-form"  method="post" name="signin" onsubmit="return validateform()">
              <h1 ALIGN = "CENTER">SIGN UP</h1>
@@ -142,7 +140,7 @@ html, body {
               </button>
               </a>
           </align>
-    </CENTER>
+        
 
  <div style="height:300px">
 </div>
@@ -150,8 +148,7 @@ html, body {
   var form = document.getElementById('sheetdb-form');
   form.addEventListener("submit", e => {
     if(validateform() != false)
-    {
-      
+    {  
       e.preventDefault();
       fetch(form.action, {
           method : "POST",
@@ -163,8 +160,7 @@ html, body {
         window.location.href = 'login.html';
     });
   }
-  });
+  });  
 </script>
- 
 </body>
 </html>
