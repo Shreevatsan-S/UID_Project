@@ -94,19 +94,17 @@ html, body {
 </head>
 <body>
   <script>  
-    function validateform(){  
+function validateform()
+    {  
       var name = document.forms["signin"]["data[username]"].value;  
       var password = document.forms["signin"]["data[password]"].value;  
-        
-      if (name==null || name==""){  
-        alert("Name can't be blank");  
-        return false;  
-      }else if(password.length<6){  
-        alert("Password must be at least 6 characters long.");  
-        return false;  
-      }
-        
+      var validation = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
+        if(!validation.test(password))
+        {
+            alert("Password should contain atleast one number and one alphanumeric character.");
+            return false;
     }  
+    }
     </script> 
     <center>   <h1 style="padding-top: 2rem; color: white;">SIGN UP TO SAVE SCORES</h1></center>
         <div class="login-content">  
