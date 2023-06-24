@@ -92,7 +92,7 @@ html, body {
    <CENTER> <p style="align-content: center;">
         <div class="login-content">  
 
-             <form action="https://sheetdb.io/api/v1/lreaj6ayl5sc9" method="get" name="form1">
+          <form id="sheetdb-form" action="https://sheetdb.io/api/v1/lreaj6ayl5sc9" method="get" name="form1">
              
              <div class="icon">
                <i class="fas fa-user-circle"></i>
@@ -100,12 +100,11 @@ html, body {
              <div class="formcontainer">
              <div class="container">
                <label for="data[username]"><strong>Username</strong></label>
-               <input type="text" placeholder="Enter Username" name="data[username]" required>
+               <input type="text" id = "username" placeholder="Enter Username" name="data[username]" required>
              
                <label for="data[password]"><strong style="opacity: 100%;">Password</strong></label>
-               <input type="password" placeholder="Enter Password" name="data[password]" >
+               <input type="password" id = "password" placeholder="Enter Password" name="data[password]" >
              </div>
-            
              
              </div>
              <button type="submit" class="bigButton" style="color:black;"><strong>START PLAYING</strong></button>
@@ -113,5 +112,40 @@ html, body {
          </div>
         </p>
     </CENTER>
-</body>
+    <script>
+        function validateCredentials(username, password) {
+          return new Promise((resolve, reject) => {
+            fetch('https://sheetdb.io/api/v1/lreaj6ayl5sc9/search?username=' + username + '&password=' + password)
+              .then(function(response) {
+                return response.json();
+              })
+              .then(function(data) {
+                resolve(data.length > 0);
+              })
+              .catch(function(error) {
+                reject(error);
+              });
+          });
+        }
+      
+        var form = document.getElementById('sheetdb-form');
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+      
+          var username = document.getElementById("username").value;
+          var password = document.getElementById("password").value;
+      
+          try {
+            var validCredentials = await validateCredentials(username, password);
+      
+            if (validCredentials) {
+              window.location.href = 'game-selection.html';
+            } else {
+              alert('Invalid username or password');
+            }
+          } catch (error) {
+            console.log("Error:", error);
+          }
+        });
+      </script>
 </html>
